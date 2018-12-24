@@ -4,4 +4,12 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <filter>
+    <filter-name>charset</filter-name>
+    <filter-class>com.jmypackageC.filter.CharsetFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>charset</filter-name>
+    <url-pattern>*</url-pattern><!--这个*号是过滤器拦截全部数据-->
+  </filter-mapping>
 </web-app>
