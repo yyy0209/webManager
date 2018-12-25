@@ -2,20 +2,20 @@ package com.jmypackageC.pojo;  /*这个包里面放表*/
 
 public class User {   //一类一表
     private int id;   //id
-    private String jurisdiction;  //权限等级
     private String username;   //用户名
     private String password;   //密码
     private String tele;   //电话号码
+    private int grade_id;  //等级id
     /*构造方法*/
     public User() {
     }
 
-    public User(int id, String jurisdiction, String username, String password, String tele) {
+    public User(int id, String username, String password, String tele, int grade_id) {
         this.id = id;
-        this.jurisdiction = jurisdiction;
         this.username = username;
         this.password = password;
         this.tele = tele;
+        this.grade_id = grade_id;
     }
     /*get和set*/
     public int getId() {
@@ -24,14 +24,6 @@ public class User {   //一类一表
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getJurisdiction() {
-        return jurisdiction;
-    }
-
-    public void setJurisdiction(String jurisdiction) {
-        this.jurisdiction = jurisdiction;
     }
 
     public String getUsername() {
@@ -57,16 +49,24 @@ public class User {   //一类一表
     public void setTele(String tele) {
         this.tele = tele;
     }
-    /*toString*/
 
+    public int getGrade_id() {
+        return grade_id;
+    }
+
+    public void setGrade_id(int grade_id) {
+        this.grade_id = grade_id;
+    }
+
+    /*toString*/
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", jurisdiction='" + jurisdiction + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", tele='" + tele + '\'' +
+                ", grade_id='" + grade_id + '\'' +
                 '}';
     }
 }

@@ -50,6 +50,10 @@
                     success:function (data) {
                         if (data=="1") {
                             alert("登录成功");
+                            window.location.href="lista"; //页面跳转
+                        }
+                        if(data=="4"){
+                            alert("登录成功");
                             window.location.href="list"; //页面跳转
                         }
                         if (data=="2"||data=="3") {

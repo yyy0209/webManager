@@ -21,6 +21,7 @@ public class ProductDaoImpl implements IProductDao {
                     p.setProductDes(rs.getString("product_des"));
                     p.setProductName(rs.getString("product_name"));
                     p.setUrl(rs.getString("url"));
+                    p.setBrandId(rs.getInt("brand_id"));
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -31,7 +32,7 @@ public class ProductDaoImpl implements IProductDao {
 
     @Override
     public int add(Product product) {   //添加
-        return JdbcUtil.executeUpdate("insert into product(product_name,price,product_des,url) values(?,?,?,?)",product.getProductName(),product.getPrice(),product.getProductDes(),product.getUrl());
+        return JdbcUtil.executeUpdate("insert into product(product_name,price,product_des,url,brand_id) values(?,?,?,?,?)",product.getProductName(),product.getPrice(),product.getProductDes(),product.getUrl(),product.getBrandId());
     }
 
     @Override
@@ -51,6 +52,7 @@ public class ProductDaoImpl implements IProductDao {
                     p.setPrice(rs.getDouble("price"));
                     p.setUrl(rs.getString("url"));
                     p.setProductId(id);
+                    p.setBrandId(rs.getInt("brand_id"));
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -61,7 +63,7 @@ public class ProductDaoImpl implements IProductDao {
 
     @Override
     public int amend(Product product) {   //修改
-        int k = JdbcUtil.executeUpdate("update product set product_name=?,price=?,product_des=?,url=? where product_id=?",product.getProductName(),product.getPrice(),product.getProductDes(),product.getUrl(),product.getProductId());
+        int k = JdbcUtil.executeUpdate("update product set product_name=?,price=?,product_des=?,url=?,brand_id=? where product_id=?",product.getProductName(),product.getPrice(),product.getProductDes(),product.getUrl(),product.getBrandId(),product.getProductId());
             return k;
     }
 }

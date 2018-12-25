@@ -1,21 +1,23 @@
 package com.jmypackageC.pojo;
 
-public class Product {   /*一表对应一个类*/
-    private int productId;
-    private String productName;
-    private double price;
-    private String productDes;
-    private String url;
+public class Product {  //商品 /*一表对应一个类*/
+    private int productId;  //商品id
+    private String productName;  //商品名称
+    private double price;   //商品价格
+    private String productDes;   //商品描述
+    private String url;  //图片
+    private int brandId; //品牌id
     /*构造方法*/
     public Product() {
     }
 
-    public Product(int productId, String productName, double price, String productDes, String url) {
+    public Product(int productId, String productName, double price, String productDes, String url, int brandId) {
         this.productId = productId;
         this.productName = productName;
         this.price = price;
         this.productDes = productDes;
         this.url = url;
+        this.brandId = brandId;
     }
     /*get和set*/
     public int getProductId() {
@@ -57,6 +59,14 @@ public class Product {   /*一表对应一个类*/
     public void setUrl(String url) {
         this.url = url;
     }
+
+    public int getBrandId() {
+        return brandId;
+    }
+
+    public void setBrandId(int brandId) {
+        this.brandId = brandId;
+    }
     /*toString*/
     @Override
     public String toString() {
@@ -66,6 +76,7 @@ public class Product {   /*一表对应一个类*/
                 ", price=" + price +
                 ", productDes='" + productDes + '\'' +
                 ", url='" + url + '\'' +
+                ", brandId='" + brandId + '\'' +
                 '}';
     }
 }

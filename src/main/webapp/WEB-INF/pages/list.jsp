@@ -27,7 +27,7 @@
     </style>
 </head>
 <body>
-    欢迎${user.username}<br>
+    <%--欢迎${user.username}<br>--%>
     <%--${user}--%>
     <a href="exit">退出</a><br>
     <%--${lists}--%>

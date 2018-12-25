@@ -38,7 +38,11 @@ public class DoLoginServlet extends HttpServlet {
                 //System.out.println(coo.getName()+ "  "+ coo.getValue());  //测试
                 HttpSession session = req.getSession();   //获取session
                 session.setAttribute("user",user);   //给服务器session添加内容
-                resp.getWriter().write("1");
+                if (uname.equals("abc")){
+                    resp.getWriter().write("1");
+                }else {
+                    resp.getWriter().write("4");
+                }
                 /*//重定向是地址
                 resp.sendRedirect("list");   //跑到ListServlet.java*/
             } else {  //密码错误

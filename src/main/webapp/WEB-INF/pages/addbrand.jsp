@@ -1,23 +1,21 @@
 <%--
   Created by IntelliJ IDEA.
   User: abd
-  Date: 2018/12/23
-  Time: 21:54
+  Date: 2018/12/25
+  Time: 20:06
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>品牌添加界面</title>
 </head>
 <body>
 <p>添加界面</p><br>
-<form action="doAdd" method="post">
-    商品名称：<input type="text" name="name"><br>
-    商品价格：<input type="text" name="price"><br>
-    商品图片：<input type="text" name="url"><br>
-    商品描述：<input type="text" name="des"><br>
+<form action="doaddbrand" method="post">
     品牌id：<input type="text" name="brandId"><br>
+    商品名称：<input type="text" name="brandName"><br>
+    商品描述：<input type="text" name="brandDescribe"><br>
     <input type="submit" value="添加">
 </form>
 </body>

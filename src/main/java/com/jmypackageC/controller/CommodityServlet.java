@@ -1,5 +1,6 @@
 package com.jmypackageC.controller;
 
+import com.jmypackageC.pojo.Product;
 import com.jmypackageC.service.IProductService;
 import com.jmypackageC.service.ProductServiceImpl;
 
@@ -9,15 +10,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
-@WebServlet("/delete")
-public class DeleteServlet extends HttpServlet {
+@WebServlet("/commodity")
+public class CommodityServlet extends HttpServlet {
     private IProductService service = new ProductServiceImpl();
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("productId"));
-        //System.out.println(id); //测试
-        service.dele(id);  //根据id删除这个对象
-        resp.sendRedirect("commodity");
+        List<Product> lists = service.getLists();  //查询出数据
+        req.setAttribute("lists",lists);
+        req.getRequestDispatcher("WEB-INF/pages/commodity.jsp").forward(req,resp);
     }
 }

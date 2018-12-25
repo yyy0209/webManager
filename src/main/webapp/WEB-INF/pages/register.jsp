@@ -8,18 +8,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>注册</title>
+    <link href="css/register.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <%--注册页面--%>
 <%--通过action属性的register经过web跳转到RegisterServlet--%>
-<form>
-    用户名：<input type="text" name="username" id="unames" class="ajaxCla"><span id="message"></span><br>
-    密码：<input type="password" name="pwd" id="pwd" class="ajaxCla" placeholder="6-18 数字和字母"><br>
-    确认密码：<input type="password" name="pwds" id="pwds" class="ajaxCla" placeholder="6-18 数字和字母"><span id="pmes"></span><br>
-    电话：<input type="text" name="tele" id="tele" class="ajaxCla" placeholder="手机号码"><br>
-    <input type="button" value="注册" id="btn" disabled="disabled"><%--修改按钮名字--%>
-</form>
+<div class="login_box">
+    <form id="fo">
+        用户名：<input type="text" name="username" id="unames" class="ajaxCla" placeholder="用户名"><span id="message"></span><br>
+        密码：<input type="password" name="pwd" id="pwd" class="ajaxCla" placeholder="6-18 数字和字母"><br>
+        确认密码：<input type="password" name="pwds" id="pwds" class="ajaxCla" placeholder="6-18 数字和字母"><span id="pmes"></span><br>
+        电话：<input type="text" name="tele" id="tele" class="ajaxCla" placeholder="手机号码"><br>
+        <input type="button" value="注册" id="btn" disabled="disabled"><%--修改按钮名字--%>
+    </form>
+</div>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
     $(function () {
@@ -41,26 +44,27 @@
                 success:function (result) {  //回调函数，这里接受传出的数据
                     if (result == "1") {
                         $("#message").text("可以注册");
-                        $("#btn").attr("disabled","disabled");
+                        $("#btn").attr("disabled",true);
                     }
                     if(result == "13"){
                         $("#message").text("可以注册");
                         $("#pmes").text("√");
-                        $("#btn").removeAttr("disabled");
+                        //$("#btn").removeAttr("disabled","disabled");
+                        $("#btn").attr("disabled",false);   //disabled属性不生效
                     }
                     if(result == "14"){
                         $("#message").text("可以注册");
                         $("#pmes").text("密码不一致");
-                        $("#btn").data("disabled","disabled");
+                        $("#btn").attr("disabled",true);
                     }
                     if(result == "15"){
                         $("#message").text("可以注册");
                         $("#pmes").text("密码不能为空");
-                        $("#btn").data("disabled","disabled");
+                        $("#btn").attr("disabled",true);
                     }
                     if (result == "2"){
                         $("#message").text("用户名以存在");
-                        $("#btn").data("disabled","disabled");
+                        $("#btn").attr("disabled",true);
                     }
                 }
             });

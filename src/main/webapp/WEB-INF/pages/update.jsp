@@ -18,6 +18,7 @@
     商品价格：<input type="text" name="price" value="${p.price}"><br>
     商品图片：<input type="text" name="url" value="${p.url}"><br>
     商品描述：<input type="text" name="des" value="${p.productDes}"><br>
+    品牌id：<input type="text" name="brandId" value="${p.brandId}"><br>
     <input type="submit" value="修改">
 </form>
 <%--<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>

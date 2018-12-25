@@ -26,7 +26,7 @@ public class DoRegisterServlet extends HttpServlet {   //验证是否能注册
         System.out.println(tele);  //测试*/
         if (uname!=""){    //判断用户名输入不为空
             User user = service.getOne(uname);
-            /*System.out.println(user);  //测试*/
+            //System.out.println(user);
             if (user == null){    //用户名可以使用
                 resp.getWriter().write("1");
                 if (pwd!=""&&pwds!=""){   //密码不为空

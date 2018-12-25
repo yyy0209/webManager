@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class UserDaolmpl implements IUserDao {
     @Override
     public int insert(User user) {  //插入数据的方法实现
-        return JdbcUtil.executeUpdate("insert into user(jurisdiction,username,password,tele) values(?,?,?,?)","b",user.getUsername(),user.getPassword(),user.getTele());
+        return JdbcUtil.executeUpdate("insert into user(username,password,tele,grade_id) values(?,?,?,?)",user.getUsername(),user.getPassword(),user.getTele(),"3");
     }
 
     @Override
@@ -22,10 +22,10 @@ public class UserDaolmpl implements IUserDao {
                 User u = new User();
                 try {
                     u.setId(rs.getInt("id"));
-                    u.setJurisdiction(rs.getString("jurisdiction"));
                     u.setUsername(rs.getString("username"));
                     u.setPassword(rs.getString("password"));
                     u.setTele(rs.getString("tele"));
+                    u.setGrade_id(rs.getInt("grade_id"));
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
