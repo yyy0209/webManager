@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/brandManagement")
-public class brandManagementServlet extends HttpServlet {
+public class BrandManagementServlet extends HttpServlet {
     private IBrandService service = new BrandServiceImpl();
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -10,18 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-@WebServlet("/doaddbrand")
-public class DoAddBrandServlet extends HttpServlet {
+@WebServlet("/doUpdateBrand")
+public class DoUpdateBrandServlet extends HttpServlet {
     private IBrandService service = new BrandServiceImpl();
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String brandName = req.getParameter("brandName");
-        String brandDescribe = req.getParameter("brandDescribe");
+        int id = Integer.parseInt(req.getParameter("brandId"));
+        String name = req.getParameter("brandName");
+        String describe = req.getParameter("brandDescribe");
         Brand b = new Brand();
-        b.setBrandName(brandName);
-        b.setBrandDescribe(brandDescribe);
-        //System.out.println(p);  //测试
-        service.addBrand(b);
+        b.setBrandId(id);
+        b.setBrandName(name);
+        b.setBrandDescribe(describe);
+        //System.out.println(b);  //测试
+        int a = service.amendBrand(b); //修改品牌
         /*重定向*/
         resp.sendRedirect("brandManagement");
     }

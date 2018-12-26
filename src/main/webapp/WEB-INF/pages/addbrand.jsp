@@ -13,9 +13,8 @@
 <body>
 <p>添加界面</p><br>
 <form action="doaddbrand" method="post">
-    品牌id：<input type="text" name="brandId"><br>
-    商品名称：<input type="text" name="brandName"><br>
-    商品描述：<input type="text" name="brandDescribe"><br>
+    品牌名称：<input type="text" name="brandName"><br>
+    品牌描述：<input type="text" name="brandDescribe"><br>
     <input type="submit" value="添加">
 </form>
 </body>

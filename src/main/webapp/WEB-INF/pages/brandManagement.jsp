@@ -30,7 +30,7 @@
                 <td>${pro.brandId}</td>  <%--这个地方是通过get方法获取--%>
                 <td>${pro.brandName}</td>
                 <td>${pro. brandDescribe}</td>
-                <td><a href="deletebrand?productId=${pro.brandId}">删除</a>&nbsp;|&nbsp;<a href="updatebrand?brandId=${pro.brandId}">修改</a></td>
+                <td><a href="deletebrand?brandId=${pro.brandId}">删除</a>&nbsp;|&nbsp;<a href="updatebrand?brandId=${pro.brandId}">修改</a></td>
             </tr>
         </c:forEach>
     </table>

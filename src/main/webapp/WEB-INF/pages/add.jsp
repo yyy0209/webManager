@@ -12,13 +12,25 @@
 </head>
 <body>
 <p>添加界面</p><br>
-<form action="doAdd" method="post">
+<form action="doAdd" method="post" enctype="multipart/form-data">
     商品名称：<input type="text" name="name"><br>
     商品价格：<input type="text" name="price"><br>
-    商品图片：<input type="text" name="url"><br>
+    商品图片：<input type="file" name="url" onchange="imgChange(this)"><img id="img"><br>
     商品描述：<input type="text" name="des"><br>
+    库存：<input type="text" name="count"><br>
     品牌id：<input type="text" name="brandId"><br>
     <input type="submit" value="添加">
 </form>
+<script type="text/javascript">
+    function imgChange(obj) {
+        console.log(obj.files[0]);
+        var reader = new FileReader();
+        reader.onload = function (ev) {
+            var img = document.getElementById("img");
+            img.src = ev.target.result;
+        };
+        reader.readAsDataURL(obj.files[0]);
+    };
+</script>
 </body>
 </html>

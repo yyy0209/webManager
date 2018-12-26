@@ -12,6 +12,12 @@
     <title>商品管理</title>
     <link href="css/lista.css" rel="stylesheet" type="text/css" />
     <link href="css/listab.css" rel="stylesheet" type="text/css" />
+    <style>
+        tr td #img{
+            width: 80px;
+            height: 80px;
+        }
+    </style>
 </head>
 <body>
     <p>显示商品界面</p>
@@ -25,6 +31,7 @@
                 <th>商品价格</th>
                 <th>商品图片</th>
                 <th>商品描述</th>
+                <th>库存</th>
                 <th>品牌id</th>
                 <th>操作</th>
             </tr>
@@ -33,8 +40,9 @@
                     <td>${pro.productId}</td>  <%--这个地方是通过get方法获取--%>
                     <td>${pro.productName}</td>
                     <td>${pro.price}</td>
-                    <td><img src="${pro.url}" alt="fh"></td>
+                    <td><img id="img" src="${pro.url}" alt="图片"></td>
                     <td>${pro.productDes}</td>
+                    <td>${pro.count}</td>
                     <td>${pro.brandId}</td>
                     <td><a href="delete?productId=${pro.productId}">删除</a>&nbsp;|&nbsp;<a href="update?productId=${pro.productId}">修改</a></td>
                 </tr>
