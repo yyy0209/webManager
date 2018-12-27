@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
 <head>
-    <title>修改品牌</title>
+    <title>修改</title>
     </head>
     <body>
     <form action="doUpdateBrand" method="post"><%--设置地址栏不显示私有数据--%>

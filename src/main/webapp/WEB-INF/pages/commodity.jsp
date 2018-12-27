@@ -32,7 +32,7 @@
                 <th>商品图片</th>
                 <th>商品描述</th>
                 <th>库存</th>
-                <th>品牌id</th>
+                <th>品牌</th>
                 <th>操作</th>
             </tr>
             <c:forEach items="${lists}" var="pro">  <%--循环--%>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: abd
@@ -8,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>添加</title>
 </head>
 <body>
 <p>添加界面</p><br>
@@ -18,8 +19,15 @@
     商品图片：<input type="file" name="url" onchange="imgChange(this)"><img id="img"><br>
     商品描述：<input type="text" name="des"><br>
     库存：<input type="text" name="count"><br>
-    品牌id：<input type="text" name="brandId"><br>
-    <input type="submit" value="添加">
+    品牌：<select name="brandId"><%--<input type="text" name="brandId">--%>
+            <%--<c:forEach items="${....}" var="brand">
+                <option value="brand.品牌id">brand.品牌名称</option>
+            </c:forEach>--%>
+            <option value="1">苹果</option>
+            <option value="2">大果</option>
+            <option value="3">小果</option>
+        </select><br>
+        <input type="submit" value="添加">
 </form>
 <script type="text/javascript">
     function imgChange(obj) {

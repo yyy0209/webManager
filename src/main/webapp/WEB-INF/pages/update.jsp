@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" isErrorPage="false" %>
 <html>
 <head>
-    <title>修改商品</title>
+    <title>修改</title>
 </head>
 <body>
 <%--${p} 通过这个获取数据--%>
