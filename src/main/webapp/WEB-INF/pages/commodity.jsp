@@ -23,6 +23,7 @@
     <p>显示商品界面</p>
     <a href="add">添加</a>
     <%--${lists}--%>
+    <%--${listsb}--%>
     <div id="b2-1" class="table-responsive">
         <table class="table table-hover">
             <tr>
@@ -43,7 +44,10 @@
                     <td><img id="img" src="${pro.url}" alt="图片"></td>
                     <td>${pro.productDes}</td>
                     <td>${pro.count}</td>
-                    <td>${pro.brandId}</td>
+                    <c:forEach items="${listsb}" var="brand">
+                        <c:if test="${pro.brandId==brand.brandId}"><td>${brand.brandName}</td></c:if>
+                    </c:forEach>
+                    <%--<td>${pro.brandId}</td>--%>
                     <td><a href="delete?productId=${pro.productId}">删除</a>&nbsp;|&nbsp;<a href="update?productId=${pro.productId}">修改</a></td>
                 </tr>
             </c:forEach>
