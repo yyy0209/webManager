@@ -1,28 +1,28 @@
 <%--
   Created by IntelliJ IDEA.
   User: abd
-  Date: 2018/12/23
-  Time: 22:47
+  Date: 2018/12/25
+  Time: 10:07
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
 <head>
-    <title>注册</title>
+    <title>修改个人信息</title>
     <link href="css/register.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<%--注册页面--%>
-<%--通过action属性的register经过web跳转到RegisterServlet--%>
-<div class="login_box">
-    <form id="fo">
-        用户名：<input type="text" name="username" id="unames" class="ajaxCla" placeholder="用户名"><span id="message"></span><br>
-        密码：<input type="password" name="pwd" id="pwd" class="ajaxCla" placeholder="6-18 数字和字母"><br>
-        确认密码：<input type="password" name="pwds" id="pwds" class="ajaxCla" placeholder="6-18 数字和字母"><span id="pmes"></span><br>
-        电话：<input type="text" name="tele" id="tele" class="ajaxCla" placeholder="手机号码"><br>
-        <input type="button" value="注册" id="btn" disabled="disabled"><%--修改按钮名字--%>
-    </form>
-</div>
+<p>修改个人信息</p><br>
+<%--${user}--%>
+<form enctype="multipart/form-data">
+    <input type="text" name="id" hidden="hidden" value="${user.productId}">
+    用户名：<input type="text" name="username" id="unames" class="ajaxCla" placeholder="用户名"><span id="message"></span><br>
+    密码：<input type="password" name="pwd" id="pwd" class="ajaxCla" placeholder="6-18 数字和字母"><br>
+    确认密码：<input type="password" name="pwds" id="pwds" class="ajaxCla" placeholder="6-18 数字和字母"><span id="pmes"></span><br>
+    电话：<input type="text" name="tele" id="tele" class="ajaxCla" placeholder="手机号码"><br>
+    <input type="text" name="gradeId" hidden="hidden" value="${user.gradeId}"><br>
+    <input type="button" value="修改" id="btn" disabled="disabled">
+</form>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
     $(function () {
@@ -38,7 +38,7 @@
             tele = $("#tele").val();
             /*$("#message").text(un);  //获取标签对象，存放内容*/
             $.ajax({
-                url:"doRegister",   //没有提交也能够去java的这个DoRegisterServlet类
+                url:"doModifyPersonalInformation",   //没有提交也能够去java
                 type:"post",  //提交方式，在浏览器网址隐藏
                 data:{"unames":un, "pwd":pwd, "pwds":pwds, "tele":tele},   //把值传入java代码中
                 success:function (result) {  //回调函数，这里接受传出的数据
@@ -47,22 +47,22 @@
                         $("#btn").attr("disabled",true);
                     }
                     if (result == "1") {
-                        $("#message").text("可以注册");
+                        $("#message").text("可以使用");
                         $("#btn").attr("disabled",true);
                     }
                     if(result == "13"){
-                        $("#message").text("可以注册");
+                        $("#message").text("可以使用");
                         $("#pmes").text("√");
                         //$("#btn").removeAttr("disabled","disabled");
                         $("#btn").attr("disabled",false);   //disabled属性不生效
                     }
                     if(result == "14"){
-                        $("#message").text("可以注册");
+                        $("#message").text("可以使用");
                         $("#pmes").text("密码不一致");
                         $("#btn").attr("disabled",true);
                     }
                     if(result == "15"){
-                        $("#message").text("可以注册");
+                        $("#message").text("可以使用");
                         $("#pmes").text("密码不能为空");
                         $("#btn").attr("disabled",true);
                     }
@@ -80,14 +80,12 @@
                 data:{"unames":un, "pwd":pwd, "pwds":pwds, "tele":tele},   //把值传入java代码中
                 success:function (data) {
                     if (data=="1"){
-                        alert("注册成功");
+                        alert("修改成功，请重新登录");
                         window.location.href="login";  //跳转登录界面
                     }
                 }
             });
-            /*alert("ffff");  //测试*/
         });
-        /*alert("1");   //测试  */
     })
 </script>
 </body>

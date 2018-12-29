@@ -37,7 +37,7 @@
                 <a href="commodity" id="Mcom" target="ww">>商品管理</a></br>
                 <a href="userControl" id="Muc" target="ww">>用户管理</a></br>
                 <a href="brandManagement" id="Mbm" target="ww">>品牌管理</a></br>
-                <a href="changePassword" id="Mcp" target="ww">>修改密码</a></br>
+                <a href="modifyPersonalInformation" id="Mcp" target="ww">>修改个人信息</a></br>
                 <a href="jurisdiction" id="Mjur" target="ww">>权限管理</a></br>
             </div>
             <!--b-->

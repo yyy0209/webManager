@@ -17,6 +17,9 @@
             width: 80px;
             height: 80px;
         }
+        tr #td5{
+            width: 400px;
+        }
     </style>
 </head>
 <body>
@@ -42,7 +45,7 @@
                     <td>${pro.productName}</td>
                     <td>${pro.price}</td>
                     <td><img id="img" src="${pro.url}" alt="图片"></td>
-                    <td>${pro.productDes}</td>
+                    <td id="td5">${pro.productDes}</td>
                     <td>${pro.count}</td>
                     <c:forEach items="${listsb}" var="brand">
                         <c:if test="${pro.brandId==brand.brandId}"><td>${brand.brandName}</td></c:if>

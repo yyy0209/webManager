@@ -12,6 +12,11 @@
     <title>品牌管理</title>
     <link href="css/lista.css" rel="stylesheet" type="text/css" />
     <link href="css/listab.css" rel="stylesheet" type="text/css" />
+    <style>
+        tr #td3{
+            width: 800px;
+        }
+    </style>
 </head>
 <body>
 <p>显示品牌界面</p>
@@ -29,7 +34,7 @@
             <tr>
                 <td>${pro.brandId}</td>  <%--这个地方是通过get方法获取--%>
                 <td>${pro.brandName}</td>
-                <td>${pro. brandDescribe}</td>
+                <td id="td3">${pro. brandDescribe}</td>
                 <td><a href="deletebrand?brandId=${pro.brandId}">删除</a>&nbsp;|&nbsp;<a href="updatebrand?brandId=${pro.brandId}">修改</a></td>
             </tr>
         </c:forEach>

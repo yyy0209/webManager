@@ -10,20 +10,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
-@WebServlet("/doRegister")
-public class DoRegisterServlet extends HttpServlet {   //验证是否能注册
+@WebServlet("/doModifyPersonalInformation")
+public class DoModifyPersonalInformationServlet extends HttpServlet {
     private IUserService service = new UserServiceImpl();
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //System.out.println("哈哈哈");  //测试语句
         String uname = req.getParameter("unames");  /*不刷新时输入的数据*/
         String pwd = req.getParameter("pwd");
         String pwds = req.getParameter("pwds");
         String tele = req.getParameter("tele");
-        /*System.out.println(uname);   //测试
-        System.out.println(pwd + " " + pwds);  //测试
-        System.out.println(tele);  //测试*/
         if (uname!=""){    //判断用户名输入不为空
             User user = service.getOne(uname);
             //System.out.println(user);
