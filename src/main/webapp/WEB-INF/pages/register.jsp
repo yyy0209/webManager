@@ -5,7 +5,7 @@
   Time: 22:47
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
 <head>
     <title>注册</title>
@@ -74,6 +74,7 @@
             });
         });
         $("#btn").click(function () {     //获取标签对象，绑定点击事件
+            var a= ${a}
             $.ajax({
                 url:"doIt",
                 type:"post",
@@ -81,7 +82,11 @@
                 success:function (data) {
                     if (data=="1"){
                         alert("注册成功");
-                        window.location.href="login";  //跳转登录界面
+                        if(a==1){
+                            window.location.href="userControl";  //跳转界面
+                        }else {
+                            window.location.href="login";  //跳转登录界面
+                        }
                     }
                 }
             });

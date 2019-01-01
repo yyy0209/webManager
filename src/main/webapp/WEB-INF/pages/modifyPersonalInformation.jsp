@@ -15,22 +15,24 @@
 <p>修改个人信息</p><br>
 <%--${user}--%>
 <form enctype="multipart/form-data">
-    <input type="text" name="id" hidden="hidden" value="${user.productId}">
+    <input type="text" name="id" id="id1" class="ajaxCla" hidden="hidden" value="${user.id}">
     用户名：<input type="text" name="username" id="unames" class="ajaxCla" placeholder="用户名"><span id="message"></span><br>
     密码：<input type="password" name="pwd" id="pwd" class="ajaxCla" placeholder="6-18 数字和字母"><br>
     确认密码：<input type="password" name="pwds" id="pwds" class="ajaxCla" placeholder="6-18 数字和字母"><span id="pmes"></span><br>
     电话：<input type="text" name="tele" id="tele" class="ajaxCla" placeholder="手机号码"><br>
-    <input type="text" name="gradeId" hidden="hidden" value="${user.gradeId}"><br>
+    <input type="text" name="grade_id" id="gid1" class="ajaxCla" hidden="hidden" value="${user.grade_id}">
     <input type="button" value="修改" id="btn" disabled="disabled">
 </form>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
     $(function () {
         /*使用ajax*/
+        var id;
         var un;
         var pwd;
         var pwds;
         var tele;
+        var gid;
         $(".ajaxCla").keyup(function () {  //获取标签对象，绑定键盘改变事件
             un = $("#unames").val(); //通过id获取这个标签对象,再获取这个对象的值
             pwd = $("#pwd").val();
@@ -74,14 +76,16 @@
             });
         });
         $("#btn").click(function () {     //获取标签对象，绑定点击事件
+            id = $("#id1").val();
+            gid = $("#gid1").val();
             $.ajax({
-                url:"doIt",
+                url:"doItModify",
                 type:"post",
-                data:{"unames":un, "pwd":pwd, "pwds":pwds, "tele":tele},   //把值传入java代码中
+                data:{"id":id,"unames":un, "pwd":pwd, "pwds":pwds, "tele":tele,"grade_id":gid},   //把值传入java代码中
                 success:function (data) {
                     if (data=="1"){
-                        alert("修改成功，请重新登录");
-                        window.location.href="login";  //跳转登录界面
+                        alert("修改成功");
+                        window.location.href="modifyPersonalInformation";  //跳转界面
                     }
                 }
             });

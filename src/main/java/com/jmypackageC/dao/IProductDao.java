@@ -11,4 +11,5 @@ public interface IProductDao {
     public int dele(int id);  //删除
     public Product getOne(int id);  //查找一个
     public int amend(Product product);  //修改
+    public List<Product> getResults(String test); //条件查询
 }

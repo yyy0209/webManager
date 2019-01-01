@@ -10,4 +10,5 @@ public interface IProductService {
     public int dele(int id);   //删除
     public Product getOne(int id);  //查询一个对象
     public int amend(Product product);   //修改
+    public List<Product> getResults(String text);
 }

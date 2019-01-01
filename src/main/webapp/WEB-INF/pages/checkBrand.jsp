@@ -2,29 +2,37 @@
 <%--
   Created by IntelliJ IDEA.
   User: abd
-  Date: 2018/12/25
-  Time: 8:43
+  Date: 2019/1/1
+  Time: 19:04
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
 <head>
-    <title>权限管理</title>
+    <title>展示品牌界面</title>
     <link href="css/lista.css" rel="stylesheet" type="text/css" />
     <link href="css/listab.css" rel="stylesheet" type="text/css" />
+    <style>
+        tr #td3{
+            width: 800px;
+        }
+    </style>
 </head>
 <body>
-<%--${lists}--%>
+<p>显示品牌界面</p>
 <div id="b2-1" class="table-responsive">
     <table class="table table-hover">
         <tr>
-            <th>权限id</th>
-            <th>等级</th>
+            <th>品牌编号</th>
+            <th>品牌名称</th>
+            <th>品牌描述</th>
         </tr>
-        <c:forEach items="${lists}" var="grade">  <%--循环--%>
+        <c:forEach items="${brands}" var="brands">  <%--循环--%>
             <tr>
-                <td>${grade.grade_id}</td>  <%--这个地方是通过get方法获取--%>
-                <td>${grade.jurisdiction}</td>
+                <td>${brands.brandId}</td>  <%--这个地方是通过get方法获取--%>
+                <td>${brands.brandName}</td>
+                <td id="td3">${brands. brandDescribe}</td>
+            </tr>
         </c:forEach>
     </table>
 </div>

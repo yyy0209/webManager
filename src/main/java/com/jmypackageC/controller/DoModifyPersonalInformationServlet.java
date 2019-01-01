@@ -22,7 +22,7 @@ public class DoModifyPersonalInformationServlet extends HttpServlet {
         if (uname!=""){    //判断用户名输入不为空
             User user = service.getOne(uname);
             //System.out.println(user);
-            if (user == null){    //用户名可以使用
+            if (user == null || user.getId()==1){    //用户名可以使用
                 resp.getWriter().write("1");
                 if (pwd!=""&&pwds!=""){   //密码不为空
                     if (pwd.equals(pwds)){  //密码相同

@@ -1,5 +1,3 @@
-<%@ page import="java.util.List" %>
-<%@ page import="com.jmypackageC.pojo.Product" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  <%--导入标签--%>
 <%--
   Created by IntelliJ IDEA.
@@ -9,54 +7,46 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
-<html>
+<!DOCTYPE html>
+<html lang="en" >
 <head>
-    <title>显示内容</title>
-    <style>
-        table{
-            border: solid 1px #000000;
-            border-collapse: collapse;
-        }
-        table thead tr th,table tbody tr td{
-            border: solid 1px #000000;
-            padding: 5px 10px;
-        }
-        table tbody tr:nth-child(odd){
-            background-color: blanchedalmond;
-        }
-    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>后台管理</title>
+    <link href="css/lista.css" rel="stylesheet" type="text/css" />
+    <link href="css/listab.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <%--欢迎${user.username}<br>--%>
-    <%--${user}--%>
-    <a href="exit">退出</a><br>
-    <%--${lists}--%>
-    <p>显示内容界面</p>
-    <a href="add">添加</a>
-    <table>
-        <thead>
-            <tr>
-                <th>商品编号</th>
-                <th>商品名称</th>
-                <th>商品价格</th>
-                <th>商品图片</th>
-                <th>商品描述</th>
-                <th>操作</th>
-            </tr>
-        </thead>
-        <tbody>
-       <%-- ${lists}  &lt;%&ndash;通过 ${lists} 这个获取数据，叫作el表达式&ndash;%&gt;--%>
-        <c:forEach items="${lists}" var="pro">  <%--循环--%>
-            <tr>
-                <td>${pro.productId}</td>  <%--这个地方是通过get方法获取--%>
-                <td>${pro.productName}</td>
-                <td>${pro.price}</td>
-                <td><img src="${pro.url}" alt="fh"></td>
-                <td>${pro.productDes}</td>
-                <td><a href="delete?productId=${pro.productId}">删除</a>&nbsp;|&nbsp;<a href="update?productId=${pro.productId}">修改</a></td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+<div id="m">
+    <div id="mainDiv">
+        <div id="a">
+            <div id="a1">
+                <p>前台服务</p>
+            </div>
+            <div id="a2">
+                <p>您好！${user.username}用户</p>
+            </div>
+            <div id="a3"><button class="btn"><a href="exit">退出登录</a></button></div>
+        </div>
+        <div id="b">
+            <%--<img src="images/login-img.png">--%>
+            <!--管理列表-->
+            <div id="b1">
+                <a id="Mtable" disabled="disabled">功能</a></br>
+                <a href="checkGoods" id="Mcom" target="ww">>显示全部商品</a></br>
+                <a href="checkBrand" id="Muc" target="ww">>显示全部品牌</a></br>
+                <%--<a href="myGoods" id="Mbm" target="ww">>我的商品管理</a></br>--%>
+                <a href="modifyPersonalInformation" id="Mcp" target="ww">>修改个人信息</a></br>
+            </div>
+            <!--b-->
+            <div id="b2">
+                <p></p>
+                <iframe name="ww" width="1217" height="600"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

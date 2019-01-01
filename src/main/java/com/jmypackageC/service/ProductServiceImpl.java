@@ -32,4 +32,9 @@ public class ProductServiceImpl implements IProductService {
     public int amend(Product product) {   //调用dao层的修改方法
         return dao.amend(product);
     }
+
+    @Override
+    public List<Product> getResults(String text) {
+        return dao.getResults(text);
+    }
 }
