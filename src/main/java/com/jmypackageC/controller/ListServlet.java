@@ -26,18 +26,22 @@ public class ListServlet extends HttpServlet {
         Cookie coo = maps.get("username");  //找到这个cookie对象
         /*System.out.println(coo.getName());
         System.out.println(coo);*/
-        String uname = coo.getValue();
-        //System.out.println(uname);
-        HttpSession session = req.getSession();   //获取Session
-        User u = (User)session.getAttribute("user");  //获取服务器session上的内容
-        List<Product> lists = service.getLists();  //查询出数据
-        req.setAttribute("lists",lists);
-        if (u==null){
-            User user = uservice.getOne(uname);
-            session.setAttribute("user",user);
-            req.getRequestDispatcher("WEB-INF/pages/list.jsp").forward(req,resp);
+        if(coo == null){
+            resp.sendRedirect("login");
         }else {
-            req.getRequestDispatcher("WEB-INF/pages/list.jsp").forward(req,resp);
+            String uname = coo.getValue();
+            //System.out.println(uname);
+            HttpSession session = req.getSession();   //获取Session
+            User u = (User)session.getAttribute("user");  //获取服务器session上的内容
+            List<Product> lists = service.getLists();  //查询出数据
+            req.setAttribute("lists",lists);
+            if (u==null){
+                User user = uservice.getOne(uname);
+                session.setAttribute("user",user);
+                req.getRequestDispatcher("WEB-INF/pages/list.jsp").forward(req,resp);
+            }else {
+                req.getRequestDispatcher("WEB-INF/pages/list.jsp").forward(req,resp);
+            }
         }
     }
 }
